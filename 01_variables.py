@@ -76,13 +76,14 @@ print(first_name)
 print(last_name)
 
 
-# Forzamos el tipo 
+# Forzamos el tipo ???? 
 
 address: str = 'mi direccion'
 
 address = 32 
 
 print(type(address))
+
 
 
 
