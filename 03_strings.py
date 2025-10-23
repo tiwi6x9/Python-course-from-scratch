@@ -1,88 +1,165 @@
-                                                             ## String ##
-                                                             
-## Como definir un string en una varibale y usarlos con ciertas funciones
+# ============================================
+# CLASE 03 - STRINGS EN PYTHON
+# ============================================
 
-my_string = 'my_string'
-my_other_string = 'my_other_string'
+# Los *strings* (cadenas de texto) son secuencias de caracteres encerradas entre comillas simples o dobles.
+# Son uno de los tipos de datos más utilizados en Python.
 
-print(len(my_string))
-print(len(my_other_string))
+# ============================================
+# 🔹 CREACIÓN Y CONCATENACIÓN DE STRINGS
+# ============================================
 
-print (my_string + '' + my_other_string)
+my_string = "Hola"
+my_other_string = 'Python'
 
-## usar strings con parametros de texto 
+# len() devuelve la longitud (número de caracteres) del string
+print(len(my_string))          # 4
+print(len(my_other_string))    # 6
 
-my_new_line_string = 'Este es un string \ncon  un salto de linea'
-print(my_new_line_string)
+# Concatenar strings (unir texto)
+print(my_string + " " + my_other_string)  # Hola Python
 
-my_tab_string = '\tEste es un string con tabulacion'
-print(my_tab_string)
-
-my_scape_string = '\tEste es un string \nescapado'
-print(my_scape_string)
-
-
-
-## Formateo 
-
-## dos maneras de optimizar codigo 
-
-name, surname, age = 'eddison', 'guillermo', 5
-
-print ('mi nombre es' + ' ', name + ' ', surname + ' ' + 'y mi edad es:', age) ## codigo extenso 
+# También se pueden unir varias cadenas
+saludo = my_string + " desde " + my_other_string
+print(saludo)  # Hola desde Python
 
 
-# fromas de optimizar 
+# ============================================
+# 🔹 CARACTERES ESPECIALES
+# ============================================
 
-print('Mi nombre es {} {} y mi edad es {}'.format(name, surname, age)) 
+# \n → salto de línea
+# \t → tabulación
+# \\ → barra invertida literal
 
-print('Mi nombre es %s %s y mi edad es %s' %(name, surname, age) ) 
+new_line = "Este es un texto\ncon salto de línea"
+tab_text = "\tEste texto tiene una tabulación"
+scape_text = "Este texto contiene una barra invertida: \\"
 
-print (f'mi nombre es {name}  {surname} y mi edad es {age}')
-
-
-## Desempaquetado de caracteres 
-
-lenguaje = 'python'
-
-a,b,c,d,e,f = lenguaje
-
-print (a)
-
-print (b)
+print(new_line)
+print(tab_text)
+print(scape_text)
 
 
-## Division 
+# ============================================
+# 🔹 FORMATEO DE STRINGS
+# ============================================
 
-lenguaje_slice = lenguaje[1:3]
+# Existen tres formas principales de insertar variables dentro de un texto:
 
-print (lenguaje_slice)
+name, surname, age = "Eddison", "Guillermo", 25
 
+# 1️⃣ Concatenación tradicional
+print("Mi nombre es " + name + " " + surname + " y tengo " + str(age) + " años.")
 
-## reverse 
+# 2️⃣ Método .format()
+print("Mi nombre es {} {} y tengo {} años.".format(name, surname, age))
 
-reversed_lenguaje = lenguaje[::-1 ]
+# 3️⃣ f-Strings (más moderna y recomendada)
+print(f"Mi nombre es {name} {surname} y tengo {age} años.")
 
-print ( reversed_lenguaje)
-
-
-## Funciones 
-
-print (lenguaje.capitalize()) # primera letra en mayuscula 
-
-print (lenguaje.upper()) # todas en mayuscula 
-
-print (lenguaje.count('t')) # para contar cuantas letra del tipo ingresado hay 
-
-print ('1'.isnumeric())
-print (lenguaje.isnumeric())
-
-print (lenguaje.lower()) # todas en minuscula 
-
-print (lenguaje.upper().isupper())
+# Puedes usar expresiones dentro de un f-string
+print(f"El próximo año tendré {age + 1} años.")
 
 
+# ============================================
+# 🔹 DESEMPAQUETADO DE CARACTERES
+# ============================================
+
+# Se puede asignar cada carácter de un string a variables separadas:
+language = "python"
+
+a, b, c, d, e, f = language  # cada letra a una variable
+print(a)  # p
+print(b)  # y
+
+
+# ============================================
+# 🔹 SLICING (CORTES DE STRING)
+# ============================================
+
+# Permite obtener subcadenas indicando posiciones de inicio y fin: [inicio:fin]
+
+print(language[0:3])   # pyt → desde índice 0 hasta 2
+print(language[1:4])   # yth → desde índice 1 hasta 3
+print(language[:4])    # pyth → desde inicio hasta índice 3
+print(language[2:])    # thon → desde índice 2 hasta el final
+
+# También se puede invertir el texto:
+print(language[::-1])  # nohtyp
+
+
+# ============================================
+# 🔹 FUNCIONES Y MÉTODOS DE STRINGS
+# ============================================
+
+# Los strings tienen muchos métodos útiles para manipular texto
+
+text = "python"
+
+print(text.capitalize())   # Python → primera letra en mayúscula
+print(text.upper())        # PYTHON → todo en mayúsculas
+print(text.lower())        # python → todo en minúsculas
+print(text.count("t"))     # 1 → cuántas veces aparece una letra
+print("123".isnumeric())   # True → todos los caracteres son números
+print("Hola".isnumeric())  # False
+print(text.upper().isupper())  # True → ¿está todo en mayúsculas?
+print(text.startswith("p"))    # True → ¿empieza con "p"?
+print(text.endswith("n"))      # True → ¿termina con "n"? 
+
+
+# ============================================
+# 🔹 CONCATENACIÓN, REPETICIÓN Y CONVERSIÓN
+# ============================================
+
+# Unir texto y números
+year = 2025
+print("Estamos en el año " + str(year))  # Conversión de int → str
+
+# Repetir un texto varias veces
+print("Python! " * 3)  # Python! Python! Python!
+
+
+# ============================================
+# 🔹 STRINGS MULTILÍNEA
+# ============================================
+
+# Puedes crear un texto que ocupe varias líneas con triple comillas
+multi_text = """Hola,
+este es un texto
+de varias líneas."""
+print(multi_text)
+
+
+# ============================================
+# 🔹 RESUMEN DE FUNCIONES ÚTILES
+# ============================================
+
+# len()        → longitud del texto
+# .upper()     → mayúsculas
+# .lower()     → minúsculas
+# .capitalize()→ primera letra mayúscula
+# .count()     → contar caracteres
+# .isnumeric() → verifica si es numérico
+# .startswith() / .endswith() → inicio o fin
+# .format() / f"" → formateo moderno
+# [::]         → slicing (corte de texto)
+#[::-1]        → invertir texto
 
 
 
 
+# ============================================
+# EJERCICIO: Presentación personal
+# ============================================
+
+# Pedimos los datos al usuario
+nombre = input("Ingresa tu nombre: ")
+apellido = input("Ingresa tu apellido: ")
+edad = input("Ingresa tu edad: ")
+
+# Creamos un mensaje formateado con salto de línea y mayúsculas
+mensaje = f"\nHola, mi nombre es {nombre.capitalize()} {apellido.capitalize()}.\nTengo {edad} años y estoy aprendiendo Python."
+
+# Mostramos el mensaje final
+print(mensaje)

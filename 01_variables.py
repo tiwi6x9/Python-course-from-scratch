@@ -1,95 +1,92 @@
- # Variables 
- 
+# ============================================
+# CLASE 01 - VARIABLES EN PYTHON
+# ============================================
 
- # Paso para generar una variable, le damos un type(tipo de valor) e imprimimos nuestra variable
- 
+# Una variable es un espacio en memoria donde guardamos un valor
+# Python detecta automáticamente el tipo de dato (no es necesario declararlo)
+
+# Asignamos una variable tipo string (cadena de texto)
 my_variable = 'My string variable'
+print(my_variable)
 
-print ( my_variable) 
-
-# asignamos otro tipo de valor a nuestra variable (type)
-
+# Asignamos un número entero (int)
 my_int_variable = 5
+print(my_int_variable)
 
-print ( my_int_variable) 
-
-# asignamos otro tipo de valor a nuestra variable (type) bool
-
+# Asignamos un valor booleano (True o False)
 my_bool_variable = True
+print(my_bool_variable)
 
-print ( my_bool_variable) 
+# Podemos imprimir varias variables separadas por comas
+print(my_bool_variable, my_int_variable, my_variable)
 
+# --------------------------------------------
+# Conversión de tipos y funciones básicas
+# --------------------------------------------
 
-
-#usar el pirnt para imprimir diferentes argumentos/ variables mediante el uso de comas en cadena
-
-# Concatenacion de variables en un print 
-print (my_bool_variable, my_int_variable, my_variable)
-
-#  Convertir un tipo de dato e identificarlo 
-
-# primero definimos el tipo de dato en este caso float
+# Asignamos un número decimal (float)
 my_float_variable = 1.5
 print(my_float_variable)
 
-# transformamos a tipo de dato string mediante el str y la consola nos va a devover que nuestra variable sera string mas no float
+# Convertimos un float a string
 my_float_to_string_variable = str(my_float_variable)
-print(my_float_variable)
-print(type(my_float_to_string_variable))
+print(my_float_to_string_variable)
+print(type(my_float_to_string_variable))  # Muestra el tipo de dato actual
 
-
-# Algunas Funciones de Sistema 
-# len () sirve para contar en este ejemplo cuantas letras tiene esta string 
-
+# La función len() cuenta los caracteres de una cadena
 my_string_variable = 'my string variable'
+print(len(my_string_variable))  # Devuelve 17
 
-print(len(my_string_variable))
+# --------------------------------------------
+# Concatenación de variables
+# --------------------------------------------
+print('El valor es:', my_bool_variable)
 
+# Variables en una sola línea (no recomendado abusar de esto)
+name, surname, alias, age = 'Eddison', 'Guillermo', 'tiwi', 25
+print('Mi nombre es:', name, surname, ', tengo', age, 'años y mi alias es', alias)
 
+# --------------------------------------------
+# Captura de datos por consola
+# --------------------------------------------
+# La función input() permite ingresar información desde el teclado
+first_name = input('Ingrese su nombre: ')
+last_name = input('Ingrese su apellido: ')
 
-# algunos ejemplos de concatenacion de variables mediante comas
+print('Hola', first_name, last_name)
 
-print ('El valor es:', my_bool_variable)
-
-
-# Variables en una sola linea. !Cuidado con el abuso de esta sintaxis!
-
-name, surname, alias, age = 'Eddison', "Guillermo", 'tiwi', 25
-
-print('mi nombre es:', name, surname, 'Tengo ', age, 'anos', 'y mi alias es',  alias)
-
-
-# Funcion - input() sirve para capturar datos mediante consola
-
-first_name = input('Ingrese su nombre:')
-last_name = input ('Ingrese su apellido:')
-
-print(first_name)
-print(last_name)
-
-# Ejemplo de como cambiar el tipo a una variable 
-
+# --------------------------------------------
+# Cambio de tipo en variables
+# --------------------------------------------
+# Python permite cambiar el tipo de una variable en cualquier momento
 first_name = 25
-last_name = 'tiwi'
+last_name = 'Tiwi'
 
 print(first_name)
 print(last_name)
 
-
-# Forzamos el tipo ???? 
-
-address: str = 'mi direccion'
-
-address = 32 
-
-print(type(address))
-
-
-
+# --------------------------------------------
+# Tipado forzado (Type Hints)
+# --------------------------------------------
+# Podemos sugerir el tipo de dato, aunque Python no lo obliga
+address: str = 'Mi dirección'
+address = 32  # Python lo permite igualmente
+print(address)
+print(type(address))\
+    
 
 
 
+# ============================================
+# EJERCICIO: Calculadora de edad futura
+# ============================================
 
+# Pedimos los datos al usuario
+nombre = input("Ingrese su nombre: ")
+edad = int(input("Ingrese su edad actual: "))
 
+# Calculamos la edad dentro de 10 años
+edad_futura = edad + 10
 
-
+# Mostramos el resultado usando f-strings
+print(f"Hola {nombre}, en 10 años tendrás {edad_futura} años.")
